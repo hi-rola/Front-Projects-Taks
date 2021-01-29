@@ -1,0 +1,25 @@
+mat-toolbar {
+  background-color: #593831;
+  color: white;
+}
+
+.logo {
+  font-size: 25px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  padding-right: 15px;
+  font-size: 16px;
+}

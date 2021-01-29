@@ -1,0 +1,46 @@
+.container-projects {
+  width: 100%;
+  height: auto;
+}
+
+
+
+.crear-proyecto{
+  display: flex;
+  justify-content: flex-end;
+  height: 70px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.pp{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.icon-mas{
+  padding-left: 10px;
+}
+
+.icon-menu{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 15px;
+}
+
+.proyectos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 50px;
+  margin-top: 35px;
+}
+
+.descripcion-proyecto{
+  margin: 0 16px;
+}
+
