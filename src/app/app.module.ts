@@ -12,13 +12,15 @@ import { MaterialDesignModule } from './models/MaterialDesing.module';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
+import { CrearProjectComponent } from './pages/crear-project/crear-project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    CrearProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,9 @@ import { ProjectsComponent } from './pages/projects/projects.component';
     BrowserAnimationsModule,
     MaterialDesignModule,
     HttpClientModule
+  ],
+  entryComponents: [
+    CrearProjectComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

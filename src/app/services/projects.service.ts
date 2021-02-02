@@ -15,4 +15,12 @@ export class ProjectsService {
     return this.http.get(this.URL_BACKEND + '/projects');
   }
 
+  crearNuevoProyecto(nuevoProyecto: any): Observable<any>{
+    return this.http.post(this.URL_BACKEND + '/projects/', nuevoProyecto);
+  }
+
+  deleteProject(id: any): Observable <any>{
+    return this.http.delete(this.URL_BACKEND + '/projects/' + id);
+  }
+
 }

@@ -1,16 +1,30 @@
 <div class="container-projects">
     <div class="crear-proyecto">
-        <div class="pp mat-elevation-z2" (click)="hola()" matRipple [matRippleCentered]="centered">
+        <div class="pp mat-elevation-z2" (click)="mostrarDialogCrearProject()" matRipple [matRippleCentered]="centered">
             <span>Nuevo proyecto</span>
             <mat-icon class="icon-mas">add_circle</mat-icon>
         </div>
     </div>
-    <div class="proyectos">
+    <div class="proyectos" *ngIf="listProjects.length > 0">
         <mat-card class="mat-elevation-z2" *ngFor="let project of listProjects">
             <div class="icon-menu">
-                <button mat-icon-button>
+                <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Más">
                     <mat-icon>more_horiz</mat-icon>
                 </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>edit</mat-icon>
+                      <span>Actualizar información proyecto</span>
+                    </button>
+                    <button mat-menu-item (click)="deleteProject(project.id)">
+                      <mat-icon>delete</mat-icon>
+                      <span>Eliminar proyecto</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>add_circle</mat-icon>
+                      <span>Agregar tareas al proyecto</span>
+                    </button>
+                  </mat-menu>
             </div>
             <mat-card-header>
                 <mat-card-title>{{project.name}}</mat-card-title>
@@ -26,6 +40,9 @@
                 </p>
             </mat-card-actions>
         </mat-card>
+    </div>
+    <div *ngIf="listProjects.length === 0" class="mensaje-proyectos mat-elevation-z2">
+        <span style="font-size: 20px;">No hay proyectos por mostrar</span>
     </div>
 </div>
 
