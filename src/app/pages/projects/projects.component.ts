@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectsService } from '../../services/projects.service';
 import { CrearProjectComponent } from '../crear-project/crear-project.component';
+import { ActualizarProjectComponent } from '../actualizar-project/actualizar-project.component';
 
 @Component({
   selector: 'app-projects',
@@ -30,6 +31,14 @@ export class ProjectsComponent implements OnInit {
     }
   }
 
+  deleteProject(id: any) {
+    this.serviceProject.deleteProject(id).subscribe(
+      result => {
+        this.getProjects();
+      }
+    )
+  }
+
   mostrarDialogCrearProject() {
     const dialogRef = this.dialog.open(CrearProjectComponent, {
       width: '600px',
@@ -43,14 +52,17 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
+  mostrarDialogActualizarProject(id: number) {
+    const dialogRef = this.dialog.open(ActualizarProjectComponent, {
+      width: '600px',
+      data: { id: id }
+    });
 
-  deleteProject(id: any) {
-    this.serviceProject.deleteProject(id).subscribe(
-      result => {
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.ngOnInit();
         this.getProjects();
       }
-    )
+    });
   }
-
-
 }

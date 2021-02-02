@@ -12,7 +12,7 @@
                     <mat-icon>more_horiz</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="mostrarDialogActualizarProject(project.id)">
                       <mat-icon>edit</mat-icon>
                       <span>Actualizar información proyecto</span>
                     </button>

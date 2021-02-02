@@ -13,6 +13,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { CrearProjectComponent } from './pages/crear-project/crear-project.component';
+import { ActualizarProjectComponent } from './pages/actualizar-project/actualizar-project.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CrearProjectComponent } from './pages/crear-project/crear-project.compo
     HeaderComponent,
     FooterComponent,
     ProjectsComponent,
-    CrearProjectComponent
+    CrearProjectComponent,
+    ActualizarProjectComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { CrearProjectComponent } from './pages/crear-project/crear-project.compo
     HttpClientModule
   ],
   entryComponents: [
-    CrearProjectComponent
+    CrearProjectComponent, ActualizarProjectComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

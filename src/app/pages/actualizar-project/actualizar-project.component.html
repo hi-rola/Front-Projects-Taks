@@ -1,0 +1,40 @@
+<h2 mat-dialog-title align="center">Actualizar proyecto</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="form-proyecto">
+    <form  [formGroup]="formActualizarProject">
+      <mat-form-field appearance="fill" class="form">
+        <mat-label>Nombre del proyecto</mat-label>
+        <input matInput formControlName='name'>
+        <mat-error *ngIf="form.name.touched || form.name.dirty || form.name.invalid">
+          <span class="mensaje-errror" *ngIf="form.name.errors?.required">Falta colocar el nombre</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Descripción del proyecto</mat-label>
+        <textarea matInput style="height: 80px;" formControlName='description'></textarea>
+        <mat-error *ngIf="form.description.touched || form.description.dirty || form.description.invalid">
+          <span class="mensaje-errror" *ngIf="form.description.errors?.required">Falta colocar la descripción</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form top">
+        <mat-label>Prioridad</mat-label>
+        <mat-select formControlName='priority'>
+          <mat-option value="1">1</mat-option>
+          <mat-option value="2">2</mat-option>
+          <mat-option value="3">3</mat-option>
+          <mat-option value="4">4</mat-option>
+          <mat-option value="5">5</mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.priority.touched || form.priority.dirty || form.priority.invalid">
+          <span class="mensaje-errror" *ngIf="form.priority.errors?.required">
+            Falta colocar la prioridad
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="actualizarProject()">Actualizar proyecto</button>
+</mat-dialog-actions>
