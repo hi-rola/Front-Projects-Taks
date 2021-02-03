@@ -1,7 +1,7 @@
 <div class="container-projects">
     <div class="crear-proyecto">
-        <div class="pp mat-elevation-z2" (click)="mostrarDialogCrearProject()" matRipple [matRippleCentered]="centered">
-            <span>Nuevo proyecto</span>
+        <div class="card-nuevo-proyecto mat-elevation-z2" (click)="mostrarDialogCrearProject()" matRipple [matRippleCentered]="centered">
+            <span style="font-weight: 600;">Nuevo proyecto</span>
             <mat-icon class="icon-mas">add_circle</mat-icon>
         </div>
     </div>
@@ -12,22 +12,22 @@
                     <mat-icon>more_horiz</mat-icon>
                 </button>
                 <mat-menu #menu="matMenu">
-                    <button mat-menu-item (click)="mostrarDialogActualizarProject(project.id)">
-                      <mat-icon>edit</mat-icon>
-                      <span>Actualizar información proyecto</span>
+                    <button mat-menu-item (click)="mostrarDialogActualizarProject(project)">
+                      <mat-icon class="icon">edit</mat-icon>
+                      <span>Actualizar información</span>
                     </button>
-                    <button mat-menu-item (click)="deleteProject(project.id)">
-                      <mat-icon>delete</mat-icon>
+                    <button mat-menu-item (click)="deleteProject(project)">
+                      <mat-icon class="icon">delete</mat-icon>
                       <span>Eliminar proyecto</span>
                     </button>
                     <button mat-menu-item>
-                      <mat-icon>add_circle</mat-icon>
+                      <mat-icon class="icon">add_circle</mat-icon>
                       <span>Agregar tareas al proyecto</span>
                     </button>
                   </mat-menu>
             </div>
             <mat-card-header>
-                <mat-card-title>{{project.name}}</mat-card-title>
+                <mat-card-title class="project-name">{{project.name}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
                 <p class="descripcion-proyecto">

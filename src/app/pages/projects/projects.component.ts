@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ProjectsService } from '../../services/projects.service';
 import { CrearProjectComponent } from '../crear-project/crear-project.component';
 import { ActualizarProjectComponent } from '../actualizar-project/actualizar-project.component';
+import { Project } from 'src/app/models/Projects';
 
 @Component({
   selector: 'app-projects',
@@ -11,7 +12,7 @@ import { ActualizarProjectComponent } from '../actualizar-project/actualizar-pro
 })
 export class ProjectsComponent implements OnInit {
 
-  listProjects: any[] = [];
+  listProjects: Project[] = [];
   centered = false;
 
   constructor(private serviceProject: ProjectsService, public dialog: MatDialog) { }
@@ -23,16 +24,16 @@ export class ProjectsComponent implements OnInit {
   getProjects() {
     try {
       this.serviceProject.getProjects().subscribe(
-        res => {
-          this.listProjects = [...res.data];
+        result => {
+          this.listProjects = [...result.data];
         }
       )
     } catch (error) {
     }
   }
 
-  deleteProject(id: any) {
-    this.serviceProject.deleteProject(id).subscribe(
+  deleteProject(project: Project) {
+    this.serviceProject.deleteProject(project.id).subscribe(
       result => {
         this.getProjects();
       }
@@ -52,10 +53,10 @@ export class ProjectsComponent implements OnInit {
     });
   }
 
-  mostrarDialogActualizarProject(id: number) {
+  mostrarDialogActualizarProject(project: Project) {
     const dialogRef = this.dialog.open(ActualizarProjectComponent, {
       width: '600px',
-      data: { id: id }
+      data: { id: project.id }
     });
 
     dialogRef.afterClosed().subscribe(result => {
