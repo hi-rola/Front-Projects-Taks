@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   margin: 0;
   padding: 0;
@@ -24,4 +24,8 @@ body {
   margin: 0 auto;
   margin-top: 40px;
   margin-bottom: 40px;
+}
+
+.mat-form-field-ripple {
+  background-color: #317254 !important;
 }

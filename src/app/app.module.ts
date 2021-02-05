@@ -14,6 +14,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { CrearProjectComponent } from './pages/crear-project/crear-project.component';
 import { ActualizarProjectComponent } from './pages/actualizar-project/actualizar-project.component';
+import { MsjEliminarProjectComponent } from './shared/mensajes-confirmacion/msj-eliminar-project/msj-eliminar-project.component';
 
 @NgModule({
   declarations: [
@@ -22,17 +23,14 @@ import { ActualizarProjectComponent } from './pages/actualizar-project/actualiza
     FooterComponent,
     ProjectsComponent,
     CrearProjectComponent,
-    ActualizarProjectComponent
+    ActualizarProjectComponent,
+    MsjEliminarProjectComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialDesignModule,
-    HttpClientModule
+    BrowserModule, AppRoutingModule, BrowserAnimationsModule, MaterialDesignModule, HttpClientModule
   ],
   entryComponents: [
-    CrearProjectComponent, ActualizarProjectComponent
+    CrearProjectComponent, ActualizarProjectComponent, MsjEliminarProjectComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,11 +12,14 @@ import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const materialModules = [
     MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatDividerModule,
     MatRippleModule, MatDialogModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule,
-    MatSelectModule, MatTooltipModule
+    MatSelectModule, MatTooltipModule, MatDatepickerModule, MatNativeDateModule, MatSnackBarModule
 ];
 
 @NgModule({
