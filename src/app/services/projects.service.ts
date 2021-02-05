@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
+import { Project } from '../models/Projects';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class ProjectsService {
     return this.http.get(this.URL_BACKEND + '/projects/' + id);
   }
 
-  crearNuevoProyecto(nuevoProyecto: any): Observable<any>{
+  crearNuevoProyecto(nuevoProyecto: Project): Observable<any>{
     return this.http.post(this.URL_BACKEND + '/projects/', nuevoProyecto);
   }
 
@@ -27,7 +28,7 @@ export class ProjectsService {
     return this.http.delete(this.URL_BACKEND + '/projects/' + id);
   }
 
-  updateProject(id: any, informacionProject: any): Observable <any> {
+  updateProject(id: any, informacionProject: Project): Observable <any> {
     return this.http.put(this.URL_BACKEND + '/projects/' + id , informacionProject);
   }
 

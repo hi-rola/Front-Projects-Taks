@@ -1,19 +1,23 @@
-<h2 mat-dialog-title align="center">Crear nuevo proyecto</h2>
+<div class="header-dialog">
+  <div>
+    <h2 class="titulo-card">Crear nuevo proyecto</h2>
+  </div>
+</div>
 <mat-dialog-content class="mat-typography">
   <div class="form-proyecto">
-    <form  [formGroup]="formNuevoProject">
+    <form [formGroup]="formNuevoProject">
       <mat-form-field appearance="fill" class="form">
         <mat-label>Nombre del proyecto</mat-label>
         <input matInput formControlName='name'>
         <mat-error *ngIf="form.name.touched || form.name.dirty || form.name.invalid">
-          <span class="mensaje-errror" *ngIf="form.name.errors?.required">Falta colocar el nombre</span>
+          <span class="mensaje-errror" *ngIf="form.name.errors?.required">Falta ingresar el nombre</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="form top">
         <mat-label>Descripción del proyecto</mat-label>
         <textarea matInput style="height: 80px;" formControlName='description'></textarea>
         <mat-error *ngIf="form.description.touched || form.description.dirty || form.description.invalid">
-          <span class="mensaje-errror" *ngIf="form.description.errors?.required">Falta colocar la descripción</span>
+          <span class="mensaje-errror" *ngIf="form.description.errors?.required">Falta ingresar la descripción</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field appearance="fill" class="form top">
@@ -27,7 +31,18 @@
         </mat-select>
         <mat-error *ngIf="form.priority.touched || form.priority.dirty || form.priority.invalid">
           <span class="mensaje-errror" *ngIf="form.priority.errors?.required">
-            Falta colocar la prioridad
+            Falta ingresar la prioridad
+          </span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="form">
+        <mat-label>Fecha de entrega</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName='deliverydate' readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.deliverydate.touched || form.deliverydate.dirty || form.deliverydate.invalid">
+          <span class="mensaje-errror" *ngIf="form.deliverydate.errors?.required">
+            Falta ingresar la fecha de entrega
           </span>
         </mat-error>
       </mat-form-field>
